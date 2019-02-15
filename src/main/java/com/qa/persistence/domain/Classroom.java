@@ -1,23 +1,35 @@
 package com.qa.persistence.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class Classroom {
 
 	
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)	
+	private Long roomNum;		
+	@Column(length = 50)
+	private String trainer;
+	@Column(length = 3)
+	private int maxClassNum;
+	@Column(length = 50)
+	private String trainees;
+	
+	
 	public Classroom(Long roomNum, String trainer, int maxClassNum, String trainees) {
 		
 		this.roomNum = roomNum;
+
 		this.trainer = trainer;
 		this.maxClassNum = maxClassNum;
 		this.trainees = trainees;
 	}
-	private Long roomNum;
-	private String trainer;
-	private int maxClassNum;
-	private String trainees;
+
 	
 	
 	public Long getRoomNum() {
