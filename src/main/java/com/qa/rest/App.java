@@ -1,4 +1,4 @@
-package assessment.Classroom;
+package com.qa.rest;
 
 /**
  * Hello world!
