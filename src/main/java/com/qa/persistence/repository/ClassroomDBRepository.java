@@ -37,9 +37,9 @@ public class ClassroomDBRepository implements ClassroomRepository{
 	}
 
 	public String getAClassroom(Long roomNum) {
-		// TODO Auto-generated method stub
-		return null;
+		return util.getJSONForObject(manager.find(Classroom.class, roomNum));
 	}
+
 
 	public String deleteClassroom(Long roomNum) {
 		manager.remove(manager.find(Classroom.class, roomNum));
@@ -53,7 +53,7 @@ public class ClassroomDBRepository implements ClassroomRepository{
 		
 		if (updates.getRoomNum() != null) {toUpdate.setRoomNum(updates.getRoomNum());}
 		if (updates.getTrainer() != null) {toUpdate.setTrainer(updates.getTrainer());}
-		if (updates.getMaxClassNum() != null) {toUpdate.setMaxClassNum(updates.getMaxClassNum());}
+		//if (updates.getMaxClassNum() != null) {toUpdate.setMaxClassNum(updates.getMaxClassNum());}
 		if (updates.getTrainees() != null) {toUpdate.setTrainees(updates.getTrainees());}
 		return "{\"message\": \"account has been sucessfully updated\"}";
 	}
