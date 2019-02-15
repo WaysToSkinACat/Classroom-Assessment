@@ -1,11 +1,14 @@
 package com.qa.persistence.domain;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Classroom {
 
 	
-	
+
 	public Classroom(Long roomNum, String trainer, int maxClassNum, String trainees) {
-		super();
+		
 		this.roomNum = roomNum;
 		this.trainer = trainer;
 		this.maxClassNum = maxClassNum;
