@@ -53,7 +53,8 @@ public class ClassroomDBRepository implements ClassroomRepository{
 		
 		if (updates.getRoomNum() != null) {toUpdate.setRoomNum(updates.getRoomNum());}
 		if (updates.getTrainer() != null) {toUpdate.setTrainer(updates.getTrainer());}
-		if (updates.getMaxClassNum() != null) {toUpdate.setLastName(updates.getLastName());}
+		if (updates.getMaxClassNum() != null) {toUpdate.setMaxClassNum(updates.getMaxClassNum());}
+		if (updates.getTrainees() != null) {toUpdate.setTrainees(updates.getTrainees());}
 		return "{\"message\": \"account has been sucessfully updated\"}";
 	}
 
