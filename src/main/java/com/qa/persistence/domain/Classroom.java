@@ -32,16 +32,16 @@ public class Classroom {
 	public void setTrainer(String trainer) {
 		this.trainer = trainer;
 	}
-	public int getmaxClassNum() {
+	public int getMaxClassNum() {
 		return maxClassNum;
 	}
-	public void setmaxClassNum(int maxClassNum) {
+	public void setMaxClassNum(int maxClassNum) {
 		this.maxClassNum = maxClassNum;
 	}
-	public String gettrainees() {
+	public String getTrainees() {
 		return trainees;
 	}
-	public void settrainees(String trainees) {
+	public void setTrainees(String trainees) {
 		this.trainees = trainees;
 	}
 	

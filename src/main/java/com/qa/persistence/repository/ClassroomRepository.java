@@ -6,10 +6,10 @@ public interface ClassroomRepository {
 
 	String createClassroom(String account);
 	
-	String getAClassroom(Long id);
+	String getAClassroom(Long roomNum);
 
-	String deleteClassroom(Long id);
+	String deleteClassroom(Long roomNum);
 
-	String updateClassroom(Long id, String account);
+	String updateClassroom(Long roomNum, String account);
 	
 }

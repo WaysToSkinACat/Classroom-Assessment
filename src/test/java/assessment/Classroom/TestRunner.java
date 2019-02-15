@@ -1,4 +1,4 @@
-package com.qa.test;
+package assessment.Classroom;
 
 import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
