@@ -58,7 +58,7 @@ public class TraineeMapRepositoryTest {
 	public void remove2TraineeTestAnd1ThatDoesntExist() {
 		repo.deleteTrainee(1L);
 		repo.deleteTrainee(2L);
-		assertEquals("{\"message\": \"no such classroom\"}", repo.deleteTrainee(2L));
+		assertEquals("{\"message\": \"no such trainee\"}", repo.deleteTrainee(2L));
 	}
 
 	@Test
