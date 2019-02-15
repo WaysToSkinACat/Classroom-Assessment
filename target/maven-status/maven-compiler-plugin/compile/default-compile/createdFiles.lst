@@ -1,8 +1,15 @@
-com\qa\persistence\repository\ClassroomRepository.class
 com\qa\rest\ClassroomEndpoint.class
+com\qa\persistence\repository\ClassroomMapRepository.class
+com\qa\persistence\repository\TraineeDBRepository.class
+com\qa\persistence\repository\TraineeRepository.class
+com\qa\rest\TraineeEndpoint.class
+com\qa\persistence\repository\ClassroomDBRepository.class
+com\qa\business\service\TraineeServiceImpl.class
+com\qa\persistence\repository\ClassroomRepository.class
+com\qa\business\service\TraineeService.class
+com\qa\persistence\repository\TraineeMapRepository.class
 com\qa\business\service\ClassroomService.class
 com\qa\util\JSONUtil.class
-com\qa\persistence\repository\ClassroomDBRepository.class
 com\qa\persistence\domain\Classroom.class
 com\qa\business\service\ClassroomServiceImpl.class
 com\qa\persistence\domain\Trainee.class

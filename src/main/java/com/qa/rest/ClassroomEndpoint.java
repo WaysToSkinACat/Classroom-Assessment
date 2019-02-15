@@ -11,14 +11,11 @@ import javax.ws.rs.Produces;
 
 import com.qa.business.service.ClassroomService;
 
-
-
 @Path("/classroom")
-public class ClassroomEndpoint 
-{
+public class ClassroomEndpoint {
 	@Inject
 	private ClassroomService service;
-	
+
 	@Path("/getAllClassrooms")
 	@GET
 	@Produces({ "application/json" })
@@ -54,5 +51,4 @@ public class ClassroomEndpoint
 		return service.getAClassroom(roomNum);
 	}
 
-	
 }

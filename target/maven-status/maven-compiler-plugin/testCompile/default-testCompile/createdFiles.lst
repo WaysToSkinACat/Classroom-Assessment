@@ -1,3 +1,8 @@
 assessment\Classroom\TestRunner.class
-assessment\Classroom\TestSuite.class
 assessment\Classroom\ClassroomDBRepositoryTest.class
+assessment\Classroom\TraineeDBRepositoryTest.class
+assessment\Classroom\ClassroomServiceTest.class
+assessment\Classroom\TestSuite.class
+assessment\Classroom\TraineeMapRepositoryTest.class
+assessment\Classroom\ClassroomMapRepositoryTest.class
+assessment\Classroom\TraineeServiceTest.class
