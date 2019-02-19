@@ -1,6 +1,6 @@
 package assessment.Classroom;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,13 +9,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.exceptions.misusing.MockitoConfigurationException;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import com.qa.persistence.domain.Classroom;
@@ -38,17 +36,17 @@ public class ClassroomDBRepositoryTest {
 	
 	private List<Classroom> classrooms;
 	
-	private static final String MOCK_OBJECT = "{\"roomNum\":1,\"trainer\":\"train\",\"maxClassNum\":12,\"trainees\":\"jim\"}";
+	private static final String MOCK_OBJECT = "{\"roomNum\":1,\"trainer\":\"train\",\"maxClassNum\":12,\"student\":[]}";
 	
-	private static final String MOCK_DATA_ARRAY = "[{\"roomNum\":1,\"trainer\":\"train\",\"maxClassNum\":30,\"trainees\":\"jim\"},"
-			+ "{\"roomNum\":2,\"trainer\":\"trains\",\"maxClassNum\":10,\"trainees\":\"jim\"}]";
+	private static final String MOCK_DATA_ARRAY = "[{\"roomNum\":1,\"trainer\":\"train\",\"maxClassNum\":12,\"student\":[]},"
+			+ "{\"roomNum\":2,\"trainer\":\"trains\",\"maxClassNum\":10,\"student\":[]}]";
 	
 	@Before
 	public void setup() {
 		
 		classrooms = new ArrayList<Classroom>();
-		classrooms.add(new Classroom(1L,"train", 30, "jim"));
-		classrooms.add(new Classroom(2L, "trains", 10, "jim"));
+		classrooms.add(new Classroom(1L,"train", 12));
+		classrooms.add(new Classroom(2L, "trains", 10));
 		
 		repo.setManager(manager);
 		util = new JSONUtil();
@@ -64,42 +62,41 @@ public class ClassroomDBRepositoryTest {
 	}
 	
 	@Test
-	@Ignore
+
 	public void testGetAClassroom() {
-		Classroom clazz;
-		Mockito.when(manager.find(Mockito.anyObject(), Mockito.anyLong())).thenReturn(classrooms.get(0));
+		Mockito.when(manager.find(Mockito.any(), Mockito.anyLong())).thenReturn(classrooms.get(0));
 		assertEquals(MOCK_OBJECT, repo.getAClassroom(1L));
 	}
 	
 	@Test
-	public void testCreateAccount() {
+	public void testCreateClassroom() {
 		String reply = repo.createClassroom(MOCK_OBJECT);
-		assertEquals("{\"message\": \"account has been sucessfully added\"}", reply);
+		assertEquals("{\"message\": \"classroom has been sucessfully added\"}", reply);
 	}
 	
 	@Test
-	public void testDeleteAccount() {
+	public void testDeleteClassroom() {
 		Mockito.when(manager.contains(Mockito.anyObject())).thenReturn(true);
 		String reply = repo.deleteClassroom(1L);
-		assertEquals("{\"message\": \"account has been sucessfully deleted\"}", reply);
+		assertEquals("{\"message\": \"classroom has been sucessfully deleted\"}", reply);
 	}
 	
-	@Ignore
+
 	@Test
-	public void testUpdateAccountPart1() {
-		String account = "{\"roomNum\":\"111111\"}";
+	public void testUpdateClassroomPart1() {
+		String classroom = "{\"roomNum\":\"111111\"}";
 		Mockito.when(manager.contains(Mockito.anyObject())).thenReturn(true);
-		Mockito.when(manager.find(Mockito.any(), Mockito.anyLong())).thenReturn(classrooms.get(0));
-		assertEquals("{\"message\": \"account has been sucessfully updated\"}", repo.updateClassroom(1L, account));
+		Mockito.when(manager.find(Mockito.any(), Mockito.anyObject())).thenReturn(classrooms.get(0));
+		assertEquals("{\"message\": \"classroom has been sucessfully updated\"}", repo.updateClassroom(1L, classroom));
 	}
 	
-	@Ignore
+
 	@Test
-	public void testUpdateAccountPart2() {
-		String account = "{\"Trainer\":\"Josh\",\"trainees\":\"Angry\"}";
+	public void testUpdateClassroomPart2() {
+		String classroom = "{\"Trainer\":\"Josh\"}";
 		Mockito.when(manager.contains(Mockito.anyObject())).thenReturn(true);
 		Mockito.when(manager.find(Mockito.any(), Mockito.anyLong())).thenReturn(classrooms.get(0));
-		assertEquals("{\"message\": \"account has been sucessfully updated\"}", repo.updateClassroom(1L, account));
+		assertEquals("{\"message\": \"classroom has been sucessfully updated\"}", repo.updateClassroom(1L, classroom));
 	}
 	
 }

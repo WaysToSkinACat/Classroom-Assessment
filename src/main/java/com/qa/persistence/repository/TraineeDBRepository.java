@@ -26,7 +26,7 @@ public class TraineeDBRepository implements TraineeRepository {
 	private JSONUtil util;
 
 	public String getAllTrainee() {
-		Query query = manager.createQuery("SELECT a FROM Account a");
+		Query query = manager.createQuery("SELECT a FROM Trainee a");
 		return util.getJSONForObject((Collection<Trainee>) query.getResultList());
 	}
 

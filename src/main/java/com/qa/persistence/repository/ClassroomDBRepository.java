@@ -26,7 +26,7 @@ public class ClassroomDBRepository implements ClassroomRepository {
 	private JSONUtil util;
 
 	public String getAllClassroom() {
-		Query query = manager.createQuery("SELECT a FROM Account a");
+		Query query = manager.createQuery("SELECT a FROM Classroom a");
 		return util.getJSONForObject((Collection<Classroom>) query.getResultList());
 	}
 
@@ -61,11 +61,9 @@ public class ClassroomDBRepository implements ClassroomRepository {
 			if (updates.getTrainer() != null) {
 				toUpdate.setTrainer(updates.getTrainer());
 			}
-			// if (updates.getMaxClassNum() != null)
-			// {toUpdate.setMaxClassNum(updates.getMaxClassNum());}
-			if (updates.getTrainees() != null) {
-				toUpdate.setTrainees(updates.getTrainees());
-			}
+			 if (updates.getMaxClassNum() != null)
+			 {toUpdate.setMaxClassNum(updates.getMaxClassNum());}
+
 			return "{\"message\": \"classroom has been sucessfully updated\"}";
 		}
 		return "{\"message\": \"no such classroom\"}";

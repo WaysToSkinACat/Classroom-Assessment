@@ -5,7 +5,6 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import com.qa.persistence.domain.Trainee;
@@ -62,20 +61,20 @@ public class TraineeMapRepositoryTest {
 	}
 
 	@Test
-	public void classroomUpdateTest() {
+	public void traineeUpdateTest() {
 		repo.updateTrainee(1L, "{\"firstName\":\"Josh\"}");
 		assertEquals("Josh", repo.getTraineeMap().get(1L).getFirstName());
 	}
-	@Ignore
+
 	@Test
 	public void jsonStringToTraineeConversionTest() {
 		assertEquals(repo.getTraineeMap().get(1L).getStudentNum(),
-				util.getObjectForJSON("{\"studentNum\":1,\"firstName\":\"train\",\"lastName\":\"train\",\"}", Trainee.class).getStudentNum());
+				util.getObjectForJSON("{\"studentNum\":1,\"firstName\":\"train\",\"lastName\":\"train\"}", Trainee.class).getStudentNum());
 	}
 
 	@Test
 	public void classroomConversionToJSONTest() {
-		assertEquals("{\"studentNum\":1,\"firstName\":\"train\",\"lastName\":\"train\",\"}",
+		assertEquals("{\"studentNum\":1,\"firstName\":\"train\",\"lastName\":\"train\"}",
 				util.getJSONForObject(repo.getTraineeMap().get(1L)));
 	}
 

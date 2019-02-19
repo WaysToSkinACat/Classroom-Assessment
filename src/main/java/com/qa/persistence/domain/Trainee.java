@@ -1,15 +1,10 @@
 package com.qa.persistence.domain;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Trainee {
@@ -18,24 +13,28 @@ public class Trainee {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long studentNum;
 	
-//	@OneToMany(mappedBy = "trainee", cascade=CascadeType.ALL)
-//	private List<Classroom> recipes = new ArrayList<Classroom>();
 	
 	@Column(length = 50)
-	private String FirstName;
+	private String firstName;
 	@Column(length = 50)
 	private String lastName;
-
+	private Long roomNum;
+	
+	
 	public Trainee() {
 
 	}
 
-	public Trainee(Long studentNum, String firstName, String lastName) {
+	public Trainee(Long studentNum, String firstName, String lastName, Long roomNum) {
 
 		this.studentNum = studentNum;
-		FirstName = firstName;
+		this.firstName = firstName;
 		this.lastName = lastName;
+		this.roomNum = roomNum;
+		
 	}
+
+
 
 	public Long getStudentNum() {
 		return studentNum;
@@ -46,11 +45,11 @@ public class Trainee {
 	}
 
 	public String getFirstName() {
-		return FirstName;
+		return firstName;
 	}
 
 	public void setFirstName(String firstName) {
-		FirstName = firstName;
+		this.firstName = firstName;
 	}
 
 	public String getLastName() {
@@ -60,5 +59,14 @@ public class Trainee {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+
+	public Long getRoomNum() {
+		return roomNum;
+	}
+
+	public void setRoomNum(Long roomNum) {
+		this.roomNum = roomNum;
+	}
+	
 
 }

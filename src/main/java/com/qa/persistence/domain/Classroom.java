@@ -1,10 +1,16 @@
 package com.qa.persistence.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Classroom {
@@ -15,17 +21,17 @@ public class Classroom {
 	@Column(length = 50)
 	private String trainer;
 	@Column(length = 3)
-	private int maxClassNum;
-	@Column(length = 50)
-	private String trainees;
+	private Integer maxClassNum;
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "roomNum", cascade=CascadeType.ALL)
+	private List<Trainee> student = new ArrayList<Trainee>();
 
-	public Classroom(Long roomNum, String trainer, int maxClassNum, String trainees) {
 
-		this.roomNum = roomNum;
-
+	public Classroom(Long roomNum, String trainer, Integer maxClassNum) {
+		
+		this.roomNum = roomNum;		
 		this.trainer = trainer;
 		this.maxClassNum = maxClassNum;
-		this.trainees = trainees;
+
 	}
 
 	public Classroom() {
@@ -48,20 +54,13 @@ public class Classroom {
 		this.trainer = trainer;
 	}
 
-	public int getMaxClassNum() {
+	public Integer getMaxClassNum() {
 		return maxClassNum;
 	}
 
-	public void setMaxClassNum(int maxClassNum) {
+	public void setMaxClassNum(Integer maxClassNum) {
 		this.maxClassNum = maxClassNum;
 	}
 
-	public String getTrainees() {
-		return trainees;
-	}
-
-	public void setTrainees(String trainees) {
-		this.trainees = trainees;
-	}
 
 }

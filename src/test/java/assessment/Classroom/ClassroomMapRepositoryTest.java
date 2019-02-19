@@ -19,13 +19,13 @@ public class ClassroomMapRepositoryTest {
 		util = new JSONUtil();
 		repo = new ClassroomMapRepository();
 		repo.createClassroom(
-				 "{\"roomNum\":1,\"trainer\":\"train\",\"maxClassNum\":12,\"trainees\":\"jim\"}");
+				 "{\"roomNum\":1,\"trainer\":\"train\",\"maxClassNum\":12,\"studentNum\":1}");
 		repo.createClassroom(
-				 "{\"roomNum\":2,\"trainer\":\"train\",\"maxClassNum\":12,\"trainees\":\"jim\"}");
+				 "{\"roomNum\":2,\"trainer\":\"train\",\"maxClassNum\":12,\"studentNum\":1}");
 		repo.createClassroom(
-				  "{\"roomNum\":3,\"trainer\":\"train\",\"maxClassNum\":12,\"trainees\":\"jim\"}");
+				  "{\"roomNum\":3,\"trainer\":\"train\",\"maxClassNum\":12,\"studentNum\":1}");
 		repo.createClassroom(
-				  "{\"roomNum\":4,\"trainer\":\"train\",\"maxClassNum\":12,\"trainees\":\"jim\"}");
+				  "{\"roomNum\":4,\"trainer\":\"train\",\"maxClassNum\":12,\"studentNum\":1}");
 	}
 
 	@Test
@@ -68,13 +68,13 @@ public class ClassroomMapRepositoryTest {
 	public void jsonStringToClassroomConversionTest() {
 		assertEquals(repo.getClassroomMap().get(1L).getRoomNum(),
 				util.getObjectForJSON(
-						  "{\"roomNum\":1,\"trainer\":\"train\",\"maxClassNum\":12,\"trainees\":\"jim\"}",
+						  "{\"roomNum\":1,\"trainer\":\"train\",\"maxClassNum\":12,\"studentNum\":1}",
 						Classroom.class).getRoomNum());
 	}
 
 	@Test
 	public void classroomConversionToJSONTest() {
-		assertEquals("{\"roomNum\":1,\"trainer\":\"train\",\"maxClassNum\":12,\"trainees\":\"jim\"}",
+		assertEquals("{\"roomNum\":1,\"trainer\":\"train\",\"maxClassNum\":12,\"student\":[]}",
 				util.getJSONForObject(repo.getClassroomMap().get(1L)));
 	}
 
